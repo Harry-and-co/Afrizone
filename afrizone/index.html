@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFRIZONE | Produits Locaux Béninois</title>
+    <meta name="description" content="AFRIZONE - Plateforme pour découvrir et acheter les meilleurs produits artisanaux et locaux du Bénin. Textiles, artisanat, épices et cosmétiques naturels.">
+    <meta name="keywords" content="Bénin, produits locaux, artisanat africain, textiles béninois, épices, cosmétiques naturels, e-commerce, Afrique">
+    <meta name="author" content="AFRIZONE">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇧🇯</text></svg>">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://afrizone.bj/">
+    <meta property="og:title" content="AFRIZONE | Produits Locaux Béninois">
+    <meta property="og:description" content="Découvrez l'authenticité béninoise avec nos textiles, artisanat, épices et cosmétiques naturels.">
+    <meta property="og:image" content="https://afrizone.bj/images/social-preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://afrizone.bj/">
+    <meta property="twitter:title" content="AFRIZONE | Produits Locaux Béninois">
+    <meta property="twitter:description" content="Découvrez l'authenticité béninoise avec nos textiles, artisanat, épices et cosmétiques naturels.">
+    <meta property="twitter:image" content="https://afrizone.bj/images/social-preview.jpg">
+    
+    <style>
+        /* RESET ET STYLES DE BASE */
+        :root {
+            --primary-color: #e67e22;
+            --secondary-color: #2c3e50;
+            --accent-color: #d35400;
+            --light-color: #f5f5f5;
+            --dark-color: #222;
+            --success-color: #27ae60;
+            --danger-color: #e74c3c;
+            --warning-color: #f39c12;
+            --info-color: #3498db;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --max-width: 1200px;
+        }
+
+        .dark-mode {
+            --light-color: #222;
+            --dark-color: #f5f5f5;
+            --secondary-color: #f5f5f5;
+            --shadow: 0 4px 8px rgba(255,255,255,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button, .btn {
+            cursor: pointer;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            position: relative;
+            color: var(--secondary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 30px;
+            padding: 8px 15px;
+            transition: var(--transition);
+        }
+
+        .search-bar:focus-within {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            width: 200px;
+            padding: 5px;
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c3e50"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%23e67e22" stroke-width="2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* CATEGORIES SECTION */
+        .categories {
+            background-color: white;
+            color: var(--dark-color);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .category-card.active {
+            border: 3px solid var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .category-img {
+            height: 200px;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .category-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .category-content h3 {
+            margin-bottom: 10px;
+        }
+
+        /* FEATURED PRODUCTS */
+        .products {
+            position: relative;
+        }
+        
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .category-filter {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background-color: var(--light-color);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid #ddd;
+        }
+        
+        .category-filter:hover, .category-filter.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-card.hidden {
+            display: none;
+        }
+        
+        .product-card.animate-out {
+            animation: fadeOut 0.3s forwards;
+        }
+        
+        .product-card.animate-in {
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            height: 250px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .product-stock {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: #777;
+        }
+
+        .product-stock.in-stock {
+            color: var(--success-color);
+        }
+
+        .product-stock.low-stock {
+            color: var(--warning-color);
+        }
+
+        .product-stock.out-of-stock {
+            color: var(--danger-color);
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            height: 400px;
+            background-color: var(--primary-color);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+        }
+
+        /* PROVERB SECTION */
+        .proverb-section {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .proverb-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .proverb {
+            font-style: italic;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .proverb-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            background-color: white;
+            color: var(--dark-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 20px;
+            background-color: var(--light-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* MODALS */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            width: 90%;
+            max-width: 600px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        /* PANIER */
+        .cart-items {
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            background-color: #f0f0f0;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .cart-item-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cart-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+        }
+
+        .quantity-btn {
+            background: transparent;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            border: none;
+            background: transparent;
+        }
+
+        .cart-remove {
+            background: transparent;
+            border: none;
+            color: var(--danger-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-summary {
+            background-color: rgba(0,0,0,0.03);
+            padding: 20px;
+            border-radius: var(--border-radius);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .summary-total {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        /* NOTIFICATIONS */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            background-color: var(--secondary-color);
+            color: white;
+            box-shadow: var(--shadow);
+            transform: translateX(100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .notification.success {
+            background-color: var(--success-color);
+        }
+
+        .notification.error {
+            background-color: var(--danger-color);
+        }
+
+        .notification.warning {
+            background-color: var(--warning-color);
+        }
+
+        .notification-close {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(20px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary-color);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .category-filters {
+                gap: 10px;
+            }
+            
+            .category-filter {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-actions {
+                gap: 10px;
+            }
+
+            .search-bar input {
+                width: 120px;
+            }
+
+            .hero {
+                padding: 100px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Notification System -->
+    <div class="notification" id="notification">
+        <span id="notification-message">Message de notification</span>
+        <button class="notification-close" id="notification-close">×</button>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-product-title">Produit</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-product-content">
+                    <!-- Product details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Votre Panier</h3>
+                <button class="modal-close" id="cart-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="cart-empty-message" class="cart-empty">
+                    <p>Votre panier est vide</p>
+                </div>
+                <div id="cart-content">
+                    <div class="cart-items" id="cart-items">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>Sous-total:</span>
+                            <span id="cart-subtotal">0 FCFA</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Livraison:</span>
+                            <span id="cart-shipping">0 FCFA</span>
+                        </div>
+                        <div class="summary-row summary-total">
+                            <span>Total:</span>
+                            <span id="cart-total">0 FCFA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding: 20px; display: flex; justify-content: space-between;">
+                <button class="btn btn-outline" id="clear-cart">Vider le panier</button>
+                <button class="btn btn-primary" id="checkout">Payer maintenant</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Confirmation Modal -->
+    <div class="modal" id="payment-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Paiement Réussi</h3>
+                <button class="modal-close" id="payment-close">&times;</button>
+            </div>
+            <div class="modal-body" style="text-align: center; padding: 40px 20px;">
+                <div style="font-size: 5rem; color: var(--success-color); margin-bottom: 20px;">✓</div>
+                <h3 style="margin-bottom: 20px;">Merci pour votre achat !</h3>
+                <p>Votre commande a été traitée avec succès.</p>
+                <p>Un email de confirmation a été envoyé à votre adresse.</p>
+                <button class="btn btn-primary" id="payment-ok" style="margin-top: 30px;">Continuer vos achats</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span>AFRI</span>ZONE
+            </a>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="products.html">Produits</a></li>
+                    <li><a href="categories.html">Catégories</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Rechercher..." id="search-input">
+                    <button>🔍</button>
+                </div>
+                <div class="cart-icon" id="cart-icon">
+                    🛒
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <button class="theme-toggle" id="theme-toggle">🌓</button>
+                <button class="hamburger" id="hamburger">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Découvrez l'Authenticité Béninoise</h1>
+                <p>AFRIZONE vous propose une sélection exceptionnelle de produits locaux artisanaux, textiles, épices et cosmétiques directement du Bénin.</p>
+                <a href="products.html" class="btn btn-primary">Explorer la boutique</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Nos Catégories</h2>
+            <div class="categories-grid">
+                <a href="textiles.html" class="category-card">
+                    <div class="category-img">🧵</div>
+                    <div class="category-content">
+                        <h3>Textiles</h3>
+                        <p>Tissus traditionnels et vêtements artisanaux</p>
+                    </div>
+                </a>
+                <a href="artisanat.html" class="category-card">
+                    <div class="category-img">🛋️</div>
+                    <div class="category-content">
+                        <h3>Artisanat</h3>
+                        <p>Sculptures, poteries et objets décoratifs</p>
+                    </div>
+                </a>
+                <a href="epices.html" class="category-card">
+                    <div class="category-img">🌶️</div>
+                    <div class="category-content">
+                        <h3>Épices</h3>
+                        <p>Saveurs authentiques du terroir béninois</p>
+                    </div>
+                </a>
+                <a href="cosmetiques.html" class="category-card">
+                    <div class="category-img">💄</div>
+                    <div class="category-content">
+                        <h3>Cosmétiques</h3>
+                        <p>Produits naturels pour le corps et les cheveux</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products" id="produits">
+        <div class="container">
+            <h2 class="section-title">Produits Populaires</h2>
+            
+            <div class="products-grid" id="products-grid">
+                <!-- Featured products will be loaded here -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="products.html" class="btn btn-outline">Voir tous les produits</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="apropos">
+        <div class="container">
+            <h2 class="section-title">À Propos d'AFRIZONE</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Notre Mission</h3>
+                    <p>AFRIZONE est née de la passion pour le patrimoine culturel et artisanal béninois. Notre mission est de mettre en valeur les talents locaux et de faire découvrir au monde la richesse de notre artisanat.</p>
+                    <p>Nous travaillons directement avec des artisans et producteurs locaux pour vous offrir des produits authentiques, de qualité et respectueux des traditions.</p>
+                    <p>Chaque achat sur AFRIZONE contribue à soutenir l'économie locale et à préserver les savoir-faire ancestraux du Bénin.</p>
+                    <a href="about.html" class="btn btn-outline">En savoir plus</a>
+                </div>
+                <div class="about-image">🇧🇯</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proverb Section -->
+    <section class="proverb-section">
+        <div class="container proverb-container">
+            <div class="proverb" id="proverb">"Quand la main du potier glisse, il dit qu'il voulait faire autre chose."</div>
+            <div class="proverb-author" id="proverb-author">Proverbe béninois</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>AFRIZONE</h3>
+                    <p>Votre plateforme pour découvrir et acheter les meilleurs produits artisanaux et locaux du Bénin.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" target="_blank">f</a>
+                        <a href="#" class="social-icon" target="_blank">t</a>
+                        <a href="#" class="social-icon" target="_blank">i</a>
+                        <a href="#" class="social-icon" target="_blank">in</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                        <li><a href="categories.html">Catégories</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Catégories</h3>
+                    <ul class="footer-links">
+                        <li><a href="textiles.html">Textiles</a></li>
+                        <li><a href="artisanat.html">Artisanat</a></li>
+                        <li><a href="epices.html">Épices</a></li>
+                        <li><a href="cosmetiques.html">Cosmétiques</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Inscrivez-vous pour recevoir nos offres spéciales et nouveautés</p>
+                    <form id="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Votre email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">S'inscrire</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AFRIZONE. Tous droits réservés. | <a href="privacy.html" style="color: var(--primary-color);">Politique de confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Base de données des produits
+        const products = [
+            {
+                id: 1,
+                name: "Tissu Kente Traditionnel",
+                category: "textile",
+                price: 12500,
+                stock: 15,
+                description: "Tissu traditionnel béninois en coton, tissé à la main avec des motifs géométriques symboliques. Parfait pour les occasions spéciales et cérémonies.",
+                image: "🧵"
+            },
+            {
+                id: 2,
+                name: "Statue en Bois d'Iroko",
+                category: "artisanat",
+                price: 22500,
+                stock: 8,
+                description: "Sculpture artisanale en bois d'Iroko représentant une figure traditionnelle Fon. Fabriquée par des artisans locaux de Ouidah.",
+                image: "🗿"
+            },
+            {
+                id: 3,
+                name: "Poudre de Néré",
+                category: "epices",
+                price: 3500,
+                stock: 25,
+                description: "Épice traditionnelle extraite des graines de néré, utilisée pour parfumer les sauces et plats locaux. Riche en protéines et minéraux.",
+                image: "🌿"
+            },
+            {
+                id: 4,
+                name: "Beurre de Karité Pur",
+                category: "cosmetiques",
+                price: 4500,
+                stock: 30,
+                description: "Beurre de karité 100% naturel, non raffiné, produit par des coopératives de femmes du Nord Bénin. Idéal pour hydrater la peau et les cheveux.",
+                image: "🧴"
+            },
+            {
+                id: 5,
+                name: "Panier Tressé en Raphia",
+                category: "artisanat",
+                price: 7500,
+                stock: 12,
+                description: "Panier traditionnel tressé à la main avec des fibres de raphia. Utilisable comme décoration ou pour le rangement.",
+                image: "🧺"
+            },
+            {
+                id: 6,
+                name: "Pagne Wax Africain",
+                category: "textile",
+                price: 9500,
+                stock: 20,
+                description: "Pagne en wax de qualité supérieure avec motifs colorés typiques de l'Afrique de l'Ouest. 100% coton, 6 yards.",
+                image: "👗"
+            },
+            {
+                id: 7,
+                name: "Sauce Gombo Séché",
+                category: "epices",
+                price: 2500,
+                stock: 5,
+                description: "Gombo séché et moulu pour préparer la sauce gombo traditionnelle. Produit local, sans conservateurs.",
+                image: "🥬"
+            },
+            {
+                id: 8,
+                name: "Huile de Baobab",
+                category: "cosmetiques",
+                price: 6500,
+                stock: 18,
+                description: "Huile végétale pure extraite des graines de baobab. Riche en vitamines et antioxydants pour nourrir la peau et les cheveux.",
+                image: "💧"
+            }
+        ];
+
+        // Proverbes béninois
+        const proverbs = [
+            {
+                text: "Quand la main du potier glisse, il dit qu'il voulait faire autre chose.",
+                author: "Proverbe Fon"
+            },
+            {
+                text: "Le vieux singe ne montre pas comment grimper à l'arbre.",
+                author: "Proverbe Yoruba"
+            },
+            {
+                text: "On ne peut pas cueillir une noix de coco sans risquer de se faire frapper par une feuille de palmier.",
+                author: "Proverbe Bariba"
+            },
+            {
+                text: "Le crapaud ne se presse que lorsqu'il s'agit de sa propre vie.",
+                author: "Proverbe Adja"
+            },
+            {
+                text: "La bouche qui dit non aujourd'hui, dira oui demain.",
+                author: "Proverbe Goun"
+            }
+        ];
+
+        // Éléments DOM
+        const dom = {
+            productsGrid: document.getElementById('products-grid'),
+            cartIcon: document.getElementById('cart-icon'),
+            cartCount: document.getElementById('cart-count'),
+            cartItems: document.getElementById('cart-items'),
+            cartSubtotal: document.getElementById('cart-subtotal'),
+            cartShipping: document.getElementById('cart-shipping'),
+            cartTotal: document.getElementById('cart-total'),
+            cartEmptyMessage: document.getElementById('cart-empty-message'),
+            cartContent: document.getElementById('cart-content'),
+            productModal: document.getElementById('product-modal'),
+            modalProductTitle: document.getElementById('modal-product-title'),
+            modalProductContent: document.getElementById('modal-product-content'),
+            modalClose: document.getElementById('modal-close'),
+            cartModal: document.getElementById('cart-modal'),
+            cartClose: document.getElementById('cart-close'),
+            clearCart: document.getElementById('clear-cart'),
+            checkoutBtn: document.getElementById('checkout'),
+            paymentModal: document.getElementById('payment-modal'),
+            paymentClose: document.getElementById('payment-close'),
+            paymentOk: document.getElementById('payment-ok'),
+            themeToggle: document.getElementById('theme-toggle'),
+            notification: document.getElementById('notification'),
+            notificationMessage: document.getElementById('notification-message'),
+            notificationClose: document.getElementById('notification-close'),
+            searchInput: document.getElementById('search-input'),
+            faqItems: document.querySelectorAll('.faq-item'),
+            contactForm: document.getElementById('contact-form'),
+            newsletterForm: document.getElementById('newsletter-form'),
+            hamburger: document.getElementById('hamburger'),
+            navLinks: document.getElementById('nav-links'),
+            proverbText: document.getElementById('proverb'),
+            proverbAuthor: document.getElementById('proverb-author'),
+            productsTitle: document.getElementById('products-title')
+        };
+
+        // Panier
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Initialisation
+        function init() {
+            renderFeaturedProducts();
+            updateCartCount();
+            setupEventListeners();
+            showRandomProverb();
+        }
+
+        // Rendu des produits en vedette
+        function renderFeaturedProducts() {
+            dom.productsGrid.innerHTML = '';
+            
+            // Sélection aléatoire de 4 produits
+            const shuffled = [...products].sort(() => 0.5 - Math.random());
+            const featuredProducts = shuffled.slice(0, 4);
+            
+            featuredProducts.forEach(product => {
+                const stockClass = product.stock > 10 ? 'in-stock' : (product.stock > 0 ? 'low-stock' : 'out-of-stock');
+                const stockText = product.stock > 10 ? 'En stock' : (product.stock > 0 ? 'Stock faible' : 'Rupture de stock');
+                
+                const productElement = document.createElement('div');
+                productElement.className = 'product-card';
+                productElement.dataset.category = product.category;
+                productElement.innerHTML = `
+                    <div class="product-img">${product.image}</div>
+                    <div class="product-content">
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-price">${formatPrice(product.price)} FCFA</div>
+                        <div class="product-stock ${stockClass}">${stockText}</div>
+                        <button class="btn btn-primary add-to-cart" data-id="${product.id}">Voir les détails</button>
+                    </div>
+                `;
+                dom.productsGrid.appendChild(productElement);
+            });
+            
+            // Ajout des événements aux boutons "Ajouter au panier"
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    showProductDetails(productId);
+                });
+            });
+        }
+
+        // Formatage du prix
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+
+        // Afficher les détails du produit dans une modal
+        function showProductDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const stockClass = product.stock > 10 ? 'in-stock' : (product.stock > 0 ? 'low-stock' : 'out-of-stock');
+            const stockText = product.stock > 10 ? 'En stock' : (product.stock > 0 ? 'Stock faible' : 'Rupture de stock');
+            
+            dom.modalProductTitle.textContent = product.name;
+            dom.modalProductContent.innerHTML = `
+                <div style="display: flex; gap: 30px; margin-bottom: 30px;">
+                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0; border-radius: var(--border-radius); padding: 20px;">
+                        <div style="font-size: 5rem;">${product.image}</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <p style="margin-bottom: 20px;">${product.description}</p>
+                        <div class="product-price" style="font-size: 1.5rem; margin-bottom: 20px;">${formatPrice(product.price)} FCFA</div>
+                        <div class="product-stock ${stockClass}" style="margin-bottom: 20px;">${stockText}</div>
+                        <div style="display: flex; gap: 15px;">
+                            <button class="btn btn-primary add-to-cart-btn" data-id="${product.id}" ${product.stock <= 0 ? 'disabled' : ''}>
+                                ${product.stock <= 0 ? 'Rupture de stock' : 'Ajouter au panier'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Ajout de l'événement au bouton "Ajouter au panier" dans la modal
+            const addToCartBtn = dom.modalProductContent.querySelector('.add-to-cart-btn');
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', () => {
+                    addToCart(productId);
+                    dom.productModal.classList.remove('active');
+                    showNotification('Produit ajouté au panier!', 'success');
+                });
+            }
+            
+            dom.productModal.classList.add('active');
+        }
+
+        // Ajouter un produit au panier
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product || product.stock <= 0) return;
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                if (existingItem.quantity < product.stock) {
+                    existingItem.quantity++;
+                } else {
+                    showNotification('Stock insuffisant pour ce produit', 'warning');
+                    return;
+                }
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            showNotification('Produit ajouté au panier!', 'success');
+        }
+
+        // Mettre à jour le panier
+        function updateCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            renderCartItems();
+        }
+
+        // Mettre à jour le compteur du panier
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            dom.cartCount.textContent = count;
+        }
+
+        // Rendre les éléments du panier
+        function renderCartItems() {
+            dom.cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                dom.cartEmptyMessage.style.display = 'block';
+                dom.cartContent.style.display = 'none';
+                return;
+            }
+            
+            dom.cartEmptyMessage.style.display = 'none';
+            dom.cartContent.style.display = 'block';
+            
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                if (!product) return;
+                
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                cartItemElement.innerHTML = `
+                    <div class="cart-item-img">${item.image}</div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">${formatPrice(item.price)} FCFA</div>
+                    </div>
+                    <div class="cart-item-actions">
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+                            <input type="text" class="quantity-input" value="${item.quantity}" readonly>
+                            <button class="quantity-btn increase" data-id="${item.id}">+</button>
+                        </div>
+                        <button class="cart-remove" data-id="${item.id}">🗑️</button>
+                    </div>
+                `;
+                dom.cartItems.appendChild(cartItemElement);
+            });
+            
+            // Calcul des totaux
+            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            const shipping = subtotal > 0 ? 2000 : 0;
+            const total = subtotal + shipping;
+            
+            dom.cartSubtotal.textContent = `${formatPrice(subtotal)} FCFA`;
+            dom.cartShipping.textContent = `${formatPrice(shipping)} FCFA`;
+            dom.cartTotal.textContent = `${formatPrice(total)} FCFA`;
+            
+            // Ajout des événements aux boutons de quantité et de suppression
+            document.querySelectorAll('.decrease').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    updateCartItemQuantity(productId, -1);
+                });
+            });
+            
+            document.querySelectorAll('.increase').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    updateCartItemQuantity(productId, 1);
+                });
+            });
+            
+            document.querySelectorAll('.cart-remove').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    removeFromCart(productId);
+                });
+            });
+        }
+
+        // Mettre à jour la quantité d'un article
+        function updateCartItemQuantity(productId, change) {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex === -1) return;
+            
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const newQuantity = cart[itemIndex].quantity + change;
+            
+            if (newQuantity < 1) {
+                removeFromCart(productId);
+                return;
+            }
+            
+            if (newQuantity > product.stock) {
+                showNotification('Stock insuffisant pour ce produit', 'warning');
+                return;
+            }
+            
+            cart[itemIndex].quantity = newQuantity;
+            updateCart();
+        }
+
+        // Supprimer un article du panier
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+            showNotification('Produit retiré du panier', 'error');
+        }
+
+        // Vider le panier
+        function clearCart() {
+            cart = [];
+            updateCart();
+            dom.cartModal.classList.remove('active');
+            showNotification('Panier vidé', 'error');
+        }
+
+        // Passer à la caisse
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Votre panier est vide', 'error');
+                return;
+            }
+            
+            // Vider le panier après paiement
+            cart = [];
+            updateCart();
+            dom.cartModal.classList.remove('active');
+            dom.paymentModal.classList.add('active');
+        }
+
+        // Afficher une notification
+        function showNotification(message, type) {
+            dom.notificationMessage.textContent = message;
+            dom.notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                dom.notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Changer de thème (clair/sombre)
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        // Filtrer les produits par recherche
+        function filterProducts(searchTerm) {
+            if (!searchTerm.trim()) {
+                renderFeaturedProducts();
+                return;
+            }
+            
+            const filteredProducts = products.filter(product => 
+                product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                product.category.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            
+            renderProducts(filteredProducts);
+        }
+
+        // Afficher un proverbe aléatoire
+        function showRandomProverb() {
+            const randomIndex = Math.floor(Math.random() * proverbs.length);
+            dom.proverbText.textContent = `"${proverbs[randomIndex].text}"`;
+            dom.proverbAuthor.textContent = proverbs[randomIndex].author;
+        }
+
+        // Configuration des écouteurs d'événements
+        function setupEventListeners() {
+            // Panier
+            dom.cartIcon.addEventListener('click', () => {
+                renderCartItems();
+                dom.cartModal.classList.add('active');
+            });
+            
+            // Fermeture des modals
+            dom.modalClose.addEventListener('click', () => {
+                dom.productModal.classList.remove('active');
+            });
+            
+            dom.cartClose.addEventListener('click', () => {
+                dom.cartModal.classList.remove('active');
+            });
+            
+            dom.paymentClose.addEventListener('click', () => {
+                dom.paymentModal.classList.remove('active');
+            });
+            
+            dom.paymentOk.addEventListener('click', () => {
+                dom.paymentModal.classList.remove('active');
+            });
+            
+            // Boutons panier
+            dom.clearCart.addEventListener('click', clearCart);
+            dom.checkoutBtn.addEventListener('click', checkout);
+            
+            // Thème
+            dom.themeToggle.addEventListener('click', toggleTheme);
+            
+            // Notifications
+            dom.notificationClose.addEventListener('click', () => {
+                dom.notification.classList.remove('show');
+            });
+            
+            // Recherche
+            dom.searchInput.addEventListener('input', (e) => {
+                filterProducts(e.target.value);
+            });
+            
+            // Menu hamburger
+            dom.hamburger.addEventListener('click', () => {
+                dom.navLinks.classList.toggle('active');
+            });
+            
+            // Fermer les modals en cliquant en dehors
+            window.addEventListener('click', (e) => {
+                if (e.target === dom.productModal) {
+                    dom.productModal.classList.remove('active');
+                }
+                if (e.target === dom.cartModal) {
+                    dom.cartModal.classList.remove('active');
+                }
+                if (e.target === dom.paymentModal) {
+                    dom.paymentModal.classList.remove('active');
+                }
+            });
+            
+            // Formulaires
+            if (dom.contactForm) {
+                dom.contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    showNotification('Message envoyé avec succès!', 'success');
+                    dom.contactForm.reset();
+                });
+            }
+            
+            if (dom.newsletterForm) {
+                dom.newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    showNotification('Merci pour votre inscription à notre newsletter!', 'success');
+                    dom.newsletterForm.reset();
+                });
+            }
+        }
+
+        // Charger le thème sauvegardé
+        function loadTheme() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+        }
+
+        // Initialiser l'application
+        window.addEventListener('DOMContentLoaded', () => {
+            loadTheme();
+            init();
+        });
+    </script>
+</body>
+</html>
