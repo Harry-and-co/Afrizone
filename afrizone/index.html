@@ -3,1922 +3,1487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFRIZONE | Produits Locaux Béninois</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇧🇯</text></svg>">
+    <title>Afrizone - Produits Locaux Africains</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* RESET ET STYLES DE BASE */
         :root {
-            --primary-color: #e67e22;
-            --secondary-color: #2c3e50;
-            --accent-color: #d35400;
-            --light-color: #f5f5f5;
-            --dark-color: #222;
-            --success-color: #27ae60;
-            --danger-color: #e74c3c;
-            --warning-color: #f39c12;
-            --info-color: #3498db;
-            --shadow: 0 4px 8px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
+            --primary: #000000;
+            --secondary: #333333;
+            --accent: #ffffff;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
             --border-radius: 8px;
-            --max-width: 1200px;
-        }
-
-        .dark-mode {
-            --light-color: #222;
-            --dark-color: #f5f5f5;
-            --secondary-color: #f5f5f5;
-            --shadow: 0 4px 8px rgba(255,255,255,0.1);
+            --box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+            --african-yellow: #e6b325;
+            --african-red: #c13535;
+            --african-green: #2e8b57;
+            --african-blue: #1e5f8d;
+            --african-purple: #6a5acd;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light-color);
-            color: var(--dark-color);
+            background-color: var(--accent);
+            color: var(--dark);
             line-height: 1.6;
-            transition: var(--transition);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        button, .btn {
-            cursor: pointer;
-            border: none;
-            border-radius: var(--border-radius);
-            padding: 10px 20px;
-            font-weight: bold;
-            transition: var(--transition);
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
             width: 100%;
-            max-width: var(--max-width);
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            position: relative;
-            color: var(--secondary-color);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        /* HEADER */
         header {
-            background-color: var(--secondary-color);
-            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--accent);
+            padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow);
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .header-actions {
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 20px;
         }
 
-        .search-bar {
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .header-right {
             display: flex;
             align-items: center;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 30px;
-            padding: 8px 15px;
-            transition: var(--transition);
+            gap: 15px;
         }
 
-        .search-bar:focus-within {
-            background-color: rgba(255,255,255,0.2);
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
         }
 
-        .search-bar input {
-            background: transparent;
-            border: none;
-            color: white;
-            outline: none;
-            width: 200px;
-            padding: 5px;
-        }
-
-        .search-bar input::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: var(--primary-color);
-            color: white;
-            width: 20px;
-            height: 20px;
+        .profile-icon {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .theme-toggle {
-            background: transparent;
-            border: none;
-            color: white;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+            color: var(--accent);
             font-size: 1.2rem;
-            cursor: pointer;
+            box-shadow: var(--box-shadow);
         }
 
-        .hamburger {
+        .profile-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: var(--accent);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 200px;
+            padding: 15px;
+            z-index: 100;
             display: none;
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        /* HERO SECTION */
+        .profile-dropdown.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .profile-dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .profile-dropdown a:hover {
+            background-color: var(--light);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--accent);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c3e50"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%23e67e22" stroke-width="2"/></svg>');
-            background-size: cover;
-            background-position: center;
-            color: white;
+            padding: 6rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(51, 51, 51, 0.85)), url('https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3') no-repeat center/cover;
+            color: var(--accent);
             text-align: center;
-            padding: 150px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
+            color: var(--accent);
         }
 
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin: 0 auto 2rem;
+            color: var(--accent);
             opacity: 0.9;
+            max-width: 600px;
         }
 
-        /* CATEGORIES SECTION */
-        .categories {
-            background-color: white;
-            color: var(--dark-color);
+        section {
+            padding: 4rem 0;
+            display: none; /* Masquer toutes les sections par défaut */
         }
 
-        .categories-grid {
+        .active-section {
+            display: block; /* Afficher la section active */
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-top: 2rem;
         }
 
-        .category-card {
-            background-color: var(--light-color);
+        .feature-card {
+            background: var(--accent);
             border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
             transition: var(--transition);
-            cursor: pointer;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        .category-card:hover {
+        .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .category-card.active {
-            border: 3px solid var(--primary-color);
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+
+        .security-item {
+            background: var(--accent);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .security-item:hover {
             transform: translateY(-5px);
         }
 
-        .category-img {
-            height: 200px;
-            background-color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-
-        .category-content {
-            padding: 20px;
+        .security-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            min-width: 50px;
             text-align: center;
         }
 
-        .category-content h3 {
-            margin-bottom: 10px;
+        .marketing-features {
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
         }
 
-        /* FEATURED PRODUCTS */
-        .products {
-            position: relative;
+        .marketing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .marketing-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: var(--accent);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .marketing-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            min-width: 40px;
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        .extensions {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-top: 2rem;
+        }
+
+        .extension-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .extension-card {
+            background: var(--accent);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .extension-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .extension-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* STYLES POUR LA NOUVELLE SECTION PRODUITS LOCAUX */
+        .local-products-section {
+            background-color: #f9f8f3;
+            padding: 5rem 0;
         }
         
-        .category-filters {
+        .product-categories {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 3rem;
         }
         
-        .category-filter {
-            padding: 8px 16px;
-            border-radius: 20px;
-            background-color: var(--light-color);
+        .category-btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            background-color: white;
+            border: 2px solid var(--african-yellow);
+            color: var(--dark);
+            font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            border: 1px solid #ddd;
         }
         
-        .category-filter:hover, .category-filter.active {
-            background-color: var(--primary-color);
+        .category-btn.active, .category-btn:hover {
+            background-color: var(--african-yellow);
             color: white;
-            border-color: var(--primary-color);
         }
-
+        
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 30px;
         }
-
+        
         .product-card {
-            background-color: white;
+            background: white;
             border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--box-shadow);
             transition: var(--transition);
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 0;
+            transform: translateY(20px);
         }
         
-        .product-card.hidden {
-            display: none;
-        }
-        
-        .product-card.animate-out {
-            animation: fadeOut 0.3s forwards;
-        }
-        
-        .product-card.animate-in {
-            animation: fadeIn 0.5s forwards;
-        }
-
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
-
-        .product-img {
-            height: 250px;
+        
+        .product-image {
+            height: 200px;
+            width: 100%;
             background-color: #f0f0f0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            overflow: hidden;
         }
-
-        .product-content {
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
             padding: 20px;
         }
-
-        .product-title {
+        
+        .product-name {
             font-size: 1.2rem;
+            font-weight: 700;
             margin-bottom: 10px;
+            color: var(--dark);
         }
-
-        .product-price {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .product-stock {
+        
+        .product-description {
+            color: var(--gray);
             font-size: 0.9rem;
             margin-bottom: 15px;
-            color: #777;
+            height: 60px;
+            overflow: hidden;
         }
-
-        .product-stock.in-stock {
-            color: var(--success-color);
-        }
-
-        .product-stock.low-stock {
-            color: var(--warning-color);
-        }
-
-        .product-stock.out-of-stock {
-            color: var(--danger-color);
-        }
-
-        /* ABOUT SECTION */
-        .about {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+        
+        .product-origin {
+            display: flex;
             align-items: center;
+            gap: 5px;
+            color: var(--african-green);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
         }
-
-        .about-text h2 {
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
+        
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--african-red);
             margin-bottom: 15px;
         }
-
-        .about-image {
-            height: 400px;
-            background-color: var(--primary-color);
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .add-to-cart {
+            flex-grow: 1;
+            background-color: var(--african-yellow);
+            color: white;
+            border: none;
             border-radius: var(--border-radius);
+            padding: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .add-to-cart:hover {
+            background-color: #d89c1f;
+        }
+        
+        .favorite-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light);
+            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
-            color: white;
-        }
-
-        /* PROVERB SECTION */
-        .proverb-section {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 60px 0;
-        }
-
-        .proverb-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .proverb {
-            font-style: italic;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .proverb-author {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        /* FAQ SECTION */
-        .faq-section {
-            background-color: white;
-            color: var(--dark-color);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .faq-question {
-            padding: 20px;
-            background-color: var(--light-color);
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-        }
-
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 20px;
-            max-height: 500px;
-        }
-
-        /* CONTACT SECTION */
-        .contact-section {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .contact-form {
-            background-color: white;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
             transition: var(--transition);
         }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary-color);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
+        
+        .favorite-btn:hover {
+            background-color: #f8d7da;
+            color: var(--african-red);
         }
-
-        /* FOOTER */
+        
+        /* Footer styles */
         footer {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 60px 0 30px;
+            background: var(--primary);
+            color: var(--accent);
+            padding: 3rem 0 1.5rem;
+            margin-top: auto;
         }
 
-        .footer-container {
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 2rem;
         }
 
-        .footer-column h3 {
-            margin-bottom: 20px;
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
             position: relative;
             padding-bottom: 10px;
+            color: var(--accent);
         }
 
-        .footer-column h3::after {
+        .footer-col h3::after {
             content: '';
             position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
             bottom: 0;
             left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-color);
         }
 
-        .footer-links li {
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
             margin-bottom: 10px;
         }
 
-        .footer-links a {
+        .footer-col ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
             transition: var(--transition);
         }
 
-        .footer-links a:hover {
-            color: var(--primary-color);
+        .footer-col ul li a:hover {
+            color: var(--accent);
             padding-left: 5px;
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .social-links {
+        .social-icons {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
 
-        .social-icon {
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: var(--secondary);
+            color: var(--accent);
+            font-size: 1.2rem;
             transition: var(--transition);
+            text-decoration: none;
         }
 
-        .social-icon:hover {
-            background-color: var(--primary-color);
+        .social-icons a:hover {
             transform: translateY(-5px);
+            background: var(--primary);
         }
 
-        /* MODALS */
-        .modal {
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .badge-new {
+            background-color: var(--primary);
+            color: var(--accent);
+        }
+
+        .badge-secure {
+            background-color: var(--primary);
+            color: var(--accent);
+        }
+
+        .back-to-top {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: var(--accent);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            z-index: 999;
             opacity: 0;
             visibility: hidden;
-            transition: var(--transition);
         }
 
-        .modal.active {
+        .back-to-top.show {
             opacity: 1;
             visibility: visible;
         }
 
-        .modal-content {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            width: 90%;
-            max-width: 600px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            transform: translateY(50px);
-            transition: var(--transition);
-        }
-
-        .modal.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .modal-header {
-            padding: 20px;
-            background-color: var(--secondary-color);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-close {
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .modal-body {
-            padding: 30px;
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-
-        /* PANIER */
-        .cart-items {
-            margin-bottom: 30px;
-        }
-
-        .cart-item {
-            display: grid;
-            grid-template-columns: 80px 1fr auto;
-            gap: 15px;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cart-item-img {
-            width: 80px;
-            height: 80px;
-            background-color: #f0f0f0;
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .cart-item-details {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .cart-item-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .cart-item-price {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cart-item-quantity {
-            display: flex;
-            align-items: center;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-        }
-
-        .quantity-btn {
-            background: transparent;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        .quantity-input {
-            width: 40px;
-            text-align: center;
-            border: none;
-            background: transparent;
-        }
-
-        .cart-remove {
-            background: transparent;
-            border: none;
-            color: var(--danger-color);
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        .cart-summary {
-            background-color: rgba(0,0,0,0.03);
-            padding: 20px;
-            border-radius: var(--border-radius);
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .summary-total {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid #ddd;
-        }
-
-        /* NOTIFICATIONS */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            border-radius: var(--border-radius);
-            background-color: var(--secondary-color);
-            color: white;
-            box-shadow: var(--shadow);
-            transform: translateX(100%);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .notification.show {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .notification.success {
-            background-color: var(--success-color);
-        }
-
-        .notification.error {
-            background-color: var(--danger-color);
-        }
-
-        .notification.warning {
-            background-color: var(--warning-color);
-        }
-
-        .notification-close {
-            background: transparent;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        /* Animations */
-        @keyframes fadeOut {
-            from { opacity: 1; transform: translateY(0); }
-            to { opacity: 0; transform: translateY(20px); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                order: -1;
-                height: 300px;
-            }
-        }
-
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--secondary-color);
+            .header-container {
                 flex-direction: column;
-                padding: 20px;
                 gap: 15px;
-                box-shadow: var(--shadow);
             }
-
-            .nav-links.active {
-                display: flex;
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
             }
-
-            .hamburger {
-                display: block;
+            
+            nav ul li {
+                margin: 5px;
             }
-
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
+            
+            .section-title h2 {
                 font-size: 2rem;
             }
             
-            .category-filters {
-                gap: 10px;
+            .header-right {
+                width: 100%;
+                justify-content: center;
             }
             
-            .category-filter {
-                padding: 6px 12px;
-                font-size: 0.9rem;
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
         }
-
-        @media (max-width: 576px) {
-            .header-actions {
-                gap: 10px;
+        
+        @media (max-width: 480px) {
+            nav ul li {
+                margin: 3px;
             }
-
-            .search-bar input {
-                width: 120px;
+            
+            nav ul li a {
+                font-size: 0.9rem;
+                padding: 5px 8px;
             }
-
-            .hero {
-                padding: 100px 0;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
+            
+            .products-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Notification System -->
-    <div class="notification" id="notification">
-        <span id="notification-message">Message de notification</span>
-        <button class="notification-close" id="notification-close">×</button>
-    </div>
-
-    <!-- Product Modal -->
-    <div class="modal" id="product-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modal-product-title">Produit</h3>
-                <button class="modal-close" id="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal-product-content">
-                    <!-- Product details will be loaded here -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cart Modal -->
-    <div class="modal" id="cart-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Votre Panier</h3>
-                <button class="modal-close" id="cart-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div id="cart-empty-message" class="cart-empty">
-                    <p>Votre panier est vide</p>
-                </div>
-                <div id="cart-content">
-                    <div class="cart-items" id="cart-items">
-                        <!-- Cart items will be loaded here -->
-                    </div>
-                    <div class="cart-summary">
-                        <div class="summary-row">
-                            <span>Sous-total:</span>
-                            <span id="cart-subtotal">0 FCFA</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Livraison:</span>
-                            <span id="cart-shipping">0 FCFA</span>
-                        </div>
-                        <div class="summary-row summary-total">
-                            <span>Total:</span>
-                            <span id="cart-total">0 FCFA</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer" style="padding: 20px; display: flex; justify-content: space-between;">
-                <button class="btn btn-outline" id="clear-cart">Vider le panier</button>
-                <button class="btn btn-primary" id="checkout">Payer maintenant</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Payment Confirmation Modal -->
-    <div class="modal" id="payment-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Paiement Réussi</h3>
-                <button class="modal-close" id="payment-close">&times;</button>
-            </div>
-            <div class="modal-body" style="text-align: center; padding: 40px 20px;">
-                <div style="font-size: 5rem; color: var(--success-color); margin-bottom: 20px;">✓</div>
-                <h3 style="margin-bottom: 20px;">Merci pour votre achat !</h3>
-                <p>Votre commande a été traitée avec succès.</p>
-                <p>Un email de confirmation a été envoyé à votre adresse.</p>
-                <button class="btn btn-primary" id="payment-ok" style="margin-top: 30px;">Continuer vos achats</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Header -->
+    <!-- En-tête -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">
-                <span>AFRI</span>ZONE
-            </a>
-            
+            <div class="logo">
+                <i class="fas fa-globe-africa"></i>
+                Afrizone
+            </div>
             <nav>
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="#accueil">Accueil</a></li>
-                    <li><a href="#produits">Produits</a></li>
-                    <li><a href="#categories">Catégories</a></li>
-                    <li><a href="#apropos">À propos</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                <ul>
+                    <li><a href="#" class="nav-link" data-section="hero"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="#" class="nav-link" data-section="local-products"><i class="fas fa-shopping-basket"></i> Produits Locaux</a></li>
+                    <li><a href="#" class="nav-link" data-section="solutions"><i class="fas fa-box-open"></i> Nos Solutions</a></li>
+                    <li><a href="#" class="nav-link" data-section="features"><i class="fas fa-star"></i> Fonctionnalités</a></li>
+                    <li><a href="#" class="nav-link" data-section="security"><i class="fas fa-shield-alt"></i> Sécurité</a></li>
+                    <li><a href="#" class="nav-link" data-section="marketing"><i class="fas fa-bullhorn"></i> Marketing</a></li>
+                    <li><a href="#" class="nav-link" data-section="extensions"><i class="fas fa-puzzle-piece"></i> Extensions</a></li>
                 </ul>
             </nav>
-            
-            <div class="header-actions">
-                <div class="search-bar">
-                    <input type="text" placeholder="Rechercher..." id="search-input">
-                    <button>🔍</button>
+            <div class="header-right">
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-user-plus"></i> Inscription</a>
                 </div>
-                <div class="cart-icon" id="cart-icon">
-                    🛒
-                    <span class="cart-count" id="cart-count">0</span>
+                <div class="profile-icon" id="profileIcon">
+                    <i class="fas fa-user"></i>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="#"><i class="fas fa-user-circle"></i> Mon Profil</a>
+                        <a href="#"><i class="fas fa-cog"></i> Paramètres</a>
+                        <a href="#"><i class="fas fa-shopping-cart"></i> Commandes</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                    </div>
                 </div>
-                <button class="theme-toggle" id="theme-toggle">🌓</button>
-                <button class="hamburger" id="hamburger">☰</button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="accueil">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Découvrez l'Authenticité Béninoise</h1>
-                <p>AFRIZONE vous propose une sélection exceptionnelle de produits locaux artisanaux, textiles, épices et cosmétiques directement du Bénin.</p>
-                <button class="btn btn-primary">Explorer la boutique</button>
-            </div>
+    <!-- Section Héro (Accueil) -->
+    <section id="hero" class="hero active-section">
+        <div class="container hero-content">
+            <h1>Afrizone - Votre plateforme E-Commerce Africaine</h1>
+            <p>Solution tout-en-un pour gérer votre boutique en ligne avec des fonctionnalités avancées adaptées au marché africain.</p>
+            <a href="#" class="btn btn-primary"><i class="fas fa-rocket"></i> Démarrer maintenant</a>
         </div>
     </section>
 
-    <!-- Categories Section -->
-    <section class="categories" id="categories">
+    <!-- Nouvelle Section: Produits Locaux -->
+    <section id="local-products" class="local-products-section">
         <div class="container">
-            <h2 class="section-title">Nos Catégories</h2>
-            <div class="categories-grid">
-                <div class="category-card" data-category="all">
-                    <div class="category-img">🌍</div>
-                    <div class="category-content">
-                        <h3>Tous les produits</h3>
-                        <p>Découvrez toute notre sélection</p>
-                    </div>
-                </div>
-                <div class="category-card" data-category="textile">
-                    <div class="category-img">🧵</div>
-                    <div class="category-content">
-                        <h3>Textiles</h3>
-                        <p>Tissus traditionnels et vêtements artisanaux</p>
-                    </div>
-                </div>
-                <div class="category-card" data-category="artisanat">
-                    <div class="category-img">🛋️</div>
-                    <div class="category-content">
-                        <h3>Artisanat</h3>
-                        <p>Sculptures, poteries et objets décoratifs</p>
-                    </div>
-                </div>
-                <div class="category-card" data-category="epices">
-                    <div class="category-img">🌶️</div>
-                    <div class="category-content">
-                        <h3>Épices</h3>
-                        <p>Saveurs authentiques du terroir béninois</p>
-                    </div>
-                </div>
-                <div class="category-card" data-category="cosmetiques">
-                    <div class="category-img">💄</div>
-                    <div class="category-content">
-                        <h3>Cosmétiques</h3>
-                        <p>Produits naturels pour le corps et les cheveux</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products -->
-    <section class="products" id="produits">
-        <div class="container">
-            <h2 class="section-title" id="products-title">Produits Populaires</h2>
-            
-            <!-- Filtres de catégorie -->
-            <div class="category-filters">
-                <div class="category-filter active" data-category="all">Tous</div>
-                <div class="category-filter" data-category="textile">Textiles</div>
-                <div class="category-filter" data-category="artisanat">Artisanat</div>
-                <div class="category-filter" data-category="epices">Épices</div>
-                <div class="category-filter" data-category="cosmetiques">Cosmétiques</div>
+            <div class="section-title">
+                <h2>Produits Locaux Africains</h2>
+                <p>Découvrez notre sélection de produits authentiques venant de tout le continent</p>
             </div>
             
-            <div class="products-grid" id="products-grid">
-                <!-- Products will be loaded here by JavaScript -->
+            <div class="product-categories">
+                <button class="category-btn active" data-category="all">Tous les produits</button>
+                <button class="category-btn" data-category="food">Alimentaire</button>
+                <button class="category-btn" data-category="beverage">Boissons</button>
+                <button class="category-btn" data-category="textile">Textiles</button>
+                <button class="category-btn" data-category="beauty">Beauté & Santé</button>
+                <button class="category-btn" data-category="art">Art & Artisanat</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Produit 1 -->
+                <div class="product-card" data-category="food">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1603361513131-89d8e6e47b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Garri">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Garri Premium</h3>
+                        <p class="product-description">Farine de manioc fermentée, idéale pour préparer l'éba, base de l'alimentation en Afrique de l'Ouest.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Nigeria
+                        </div>
+                        <div class="product-price">3,50 € / kg</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 2 -->
+                <div class="product-card" data-category="beauty">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1595425977371-9d9d3c3b32a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Beurre de Karité">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Beurre de Karité Pur</h3>
+                        <p class="product-description">Beurre de karité 100% naturel, brut et non raffiné. Hydratant intense pour la peau et les cheveux.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Burkina Faso
+                        </div>
+                        <div class="product-price">8,90 € / pot</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 3 -->
+                <div class="product-card" data-category="textile">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Tissu Wax">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Tissu Wax Authentique</h3>
+                        <p class="product-description">Tissu africain wax de haute qualité, motifs traditionnels. Parfait pour la confection de vêtements.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Côte d'Ivoire
+                        </div>
+                        <div class="product-price">12,50 € / mètre</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 4 -->
+                <div class="product-card" data-category="beverage">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bissap">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Sirop de Bissap</h3>
+                        <p class="product-description">Sirop naturel à base de fleurs d'hibiscus, riche en vitamine C. Rafraîchissant et détoxifiant.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Sénégal
+                        </div>
+                        <div class="product-price">6,75 € / bouteille</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 5 -->
+                <div class="product-card" data-category="food">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1604329760669-d0e4d1c7fd5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Attiéké">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Attiéké Traditionnel</h3>
+                        <p class="product-description">Semoule de manioc fermentée, spécialité ivoirienne. Accompagnement parfait pour les grillades.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Côte d'Ivoire
+                        </div>
+                        <div class="product-price">4,20 € / paquet</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 6 -->
+                <div class="product-card" data-category="art">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1582730147924-d92f4da00252?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Masque Africain">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Masque Traditionnel Baoulé</h3>
+                        <p class="product-description">Masque africain artisanal en bois sculpté, représentant les esprits ancestraux. Pièce unique.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Côte d'Ivoire
+                        </div>
+                        <div class="product-price">45,00 €</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 7 -->
+                <div class="product-card" data-category="food">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1615486515254-3c3d99d1a3a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Fonio">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Fonio Bio</h3>
+                        <p class="product-description">Céréale ancienne sans gluten, riche en protéines et minéraux. Alternative saine aux céréales classiques.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Mali
+                        </div>
+                        <div class="product-price">5,95 € / kg</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 8 -->
+                <div class="product-card" data-category="beauty">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Huile de Baobab">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Huile de Baobab</h3>
+                        <p class="product-description">Huile végétale précieuse, régénérante et antioxydante. Idéale pour les soins de la peau et des cheveux.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Sénégal
+                        </div>
+                        <div class="product-price">14,90 € / flacon</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 9 -->
+                <div class="product-card" data-category="food">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1605276373954-0c4a0dac5b12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Soumbala">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Soumbala Artisanal</h3>
+                        <p class="product-description">Condiment traditionnel à base de néré fermenté. Rehausse la saveur des sauces et plats africains.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Burkina Faso
+                        </div>
+                        <div class="product-price">3,25 € / sachet</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 10 -->
+                <div class="product-card" data-category="beverage">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600857062241-98c0a9e0a98e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Café">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Café Éthiopien Moka</h3>
+                        <p class="product-description">Café arabica d'Éthiopie, aux notes fruitées et florales. Torréfaction artisanale pour préserver les arômes.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Éthiopie
+                        </div>
+                        <div class="product-price">9,50 € / 250g</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 11 -->
+                <div class="product-card" data-category="textile">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1584971931768-5a6d3a85c4d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bazin">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Tissu Bazin Richelieu</h3>
+                        <p class="product-description">Tissu damassé de haute qualité, utilisé pour les tenues de cérémonie. Brillant et raffiné.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Mali
+                        </div>
+                        <div class="product-price">18,90 € / mètre</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 12 -->
+                <div class="product-card" data-category="art">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1584817622450-3ec1e0d0d1e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Statue">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Statue Ashanti</h3>
+                        <p class="product-description">Statue en bois représentant une reine Ashanti. Sculpture artisanale réalisée au Ghana.</p>
+                        <div class="product-origin">
+                            <i class="fas fa-map-marker-alt"></i> Ghana
+                        </div>
+                        <div class="product-price">39,90 €</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">Ajouter au panier</button>
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="apropos">
+    <!-- Solutions (anciennement Produits) -->
+    <section id="solutions" class="products">
         <div class="container">
-            <h2 class="section-title">À Propos d'AFRIZONE</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Notre Mission</h3>
-                    <p>AFRIZONE est née de la passion pour le patrimoine culturel et artisanal béninois. Notre mission est de mettre en valeur les talents locaux et de faire découvrir au monde la richesse de notre artisanat.</p>
-                    <p>Nous travaillons directement avec des artisans et producteurs locaux pour vous offrir des produits authentiques, de qualité et respectueux des traditions.</p>
-                    <p>Chaque achat sur AFRIZONE contribue à soutenir l'économie locale et à préserver les savoir-faire ancestraux du Bénin.</p>
-                    <button class="btn btn-outline">En savoir plus</button>
+            <div class="section-title">
+                <h2>Nos Solutions</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Boutique en Ligne</h3>
+                    <p>Créez votre boutique en ligne professionnelle en quelques minutes, sans compétences techniques.</p>
                 </div>
-                <div class="about-image">🇧🇯</div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Application Mobile</h3>
+                    <p>Application mobile native pour iOS et Android pour gérer votre boutique où que vous soyez.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Analytique Avancée</h3>
+                    <p>Suivez vos performances avec des rapports détaillés et des analyses prédictives.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Proverb Section -->
-    <section class="proverb-section">
-        <div class="container proverb-container">
-            <div class="proverb" id="proverb">"Quand la main du potier glisse, il dit qu'il voulait faire autre chose."</div>
-            <div class="proverb-author" id="proverb-author">Proverbe béninois</div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
+    <!-- Fonctionnalités principales -->
+    <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Questions Fréquentes</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Comment passer une commande ?</span>
-                        <span>+</span>
+            <div class="section-title">
+                <h2>Fonctionnalités Principales</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p>Pour passer une commande, parcourez notre catalogue, ajoutez les produits désirés à votre panier, puis procédez au paiement. Vous recevrez une confirmation par email.</p>
-                    </div>
+                    <h3>Gestion Avancée</h3>
+                    <p>Gestion complète des stocks, des commandes, des retours et des remboursements avec interface intuitive.</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Quels sont les modes de paiement acceptés ?</span>
-                        <span>+</span>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p>Nous acceptons les cartes de crédit (Visa, MasterCard), les paiements mobiles (Moov Money, Flooz) et les virements bancaires.</p>
-                    </div>
+                    <h3>Tableau de Bord</h3>
+                    <p>Tableau de bord personnalisable avec statistiques en temps réel et indicateurs de performance.</p>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Quelle est la politique de livraison ?</span>
-                        <span>+</span>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users-cog"></i>
                     </div>
-                    <div class="faq-answer">
-                        <p>Nous livrons dans tout le Bénin. Les délais de livraison varient de 1 à 3 jours dans les grandes villes et jusqu'à 5 jours dans les régions plus éloignées. Les frais de livraison sont calculés en fonction de votre localisation.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Puis-je retourner un produit ?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Oui, nous acceptons les retours sous 14 jours après réception. Le produit doit être dans son emballage d'origine et en parfait état. Contactez notre service client pour initier un retour.</p>
-                    </div>
+                    <h3>Gestion Multi-Rôles</h3>
+                    <p>Administration sécurisée avec gestion des rôles (admin, vendeurs, livreurs) et permissions granulaires.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <!-- Sécurité -->
+    <section id="security" class="security">
         <div class="container">
-            <h2 class="section-title">Contactez-nous</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h3>Adresse</h3>
-                            <p>Rue des Artisans, Cotonou, Bénin</p>
-                        </div>
+            <div class="section-title">
+                <h2>Sécurité & Protection</h2>
+            </div>
+            <div class="security-grid">
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-lock"></i>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div>
-                            <h3>Téléphone</h3>
-                            <p>+229 60 123 456</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>contact@afrizone.bj</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🕒</div>
-                        <div>
-                            <h3>Horaires d'ouverture</h3>
-                            <p>Lun-Sam: 8h00 - 18h00</p>
-                        </div>
+                    <div>
+                        <h3>HTTPS & SSL</h3>
+                        <p>Sécurisé avec HTTPS et certificat SSL pour toutes les transactions.</p>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <h3>Envoyez-nous un message</h3>
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Nom complet</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Sujet</label>
-                            <input type="text" id="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                    </form>
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Espace Admin Sécurisé</h3>
+                        <p>Accès protégé à l'administration avec authentification à deux facteurs.</p>
+                    </div>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <h3>Gestion des Rôles</h3>
+                        <p>Permissions granulaires pour admin, vendeurs et livreurs.</p>
+                    </div>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div>
+                        <h3>Protection Anti-Fraude</h3>
+                        <p>Système avancé de détection des activités suspectes et frauduleuses.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Marketing -->
+    <section id="marketing" class="marketing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fonctionnalités Marketing</h2>
+            </div>
+            <div class="marketing-features">
+                <div class="marketing-grid">
+                    <div class="marketing-item">
+                        <div class="marketing-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div>
+                            <h3>Notifications Multi-Canaux</h3>
+                            <p>Notifications par email, SMS et WhatsApp pour les commandes et promotions.</p>
+                        </div>
+                    </div>
+                    <div class="marketing-item">
+                        <div class="marketing-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div>
+                            <h3>Système de Promotions</h3>
+                            <p>Créez des promotions, codes réductions et offres spéciales facilement.</p>
+                        </div>
+                    </div>
+                    <div class="marketing-item">
+                        <div class="marketing-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div>
+                            <h3>Avis Clients</h3>
+                            <p>Système de notation et d'avis pour augmenter la confiance.</p>
+                        </div>
+                    </div>
+                    <div class="marketing-item">
+                        <div class="marketing-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3>Analyse des Ventes</h3>
+                            <p>Suivez vos ventes et statistiques de performance en temps réel.</p>
+                        </div>
+                    </div>
+                    <div class="marketing-item">
+                        <div class="marketing-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Newsletter</h3>
+                            <p>Créez et envoyez des newsletters à votre base clients.</p>
+                        </div>
+                    </div>
+                    <div class="marketing-item">
+                        <div class="marketing-icon">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <div>
+                            <h3>Réseaux Sociaux</h3>
+                            <p>Intégration avec Facebook, Instagram et TikTok.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extensions -->
+    <section id="extensions" class="extensions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Extensions Possibles</h2>
+            </div>
+            <div class="extensions">
+                <div class="extension-grid">
+                    <div class="extension-card">
+                        <div class="extension-icon">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <h3>Facturation Automatique</h3>
+                        <p>Génération automatique de factures PDF personnalisées.</p>
+                        <span class="badge badge-new">Nouveau</span>
+                    </div>
+                    <div class="extension-card">
+                        <div class="extension-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Logistique Locale</h3>
+                        <p>Intégration avec livreurs privés ou services de livraison locaux.</p>
+                    </div>
+                    <div class="extension-card">
+                        <div class="extension-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3>Mode Marketplace</h3>
+                        <p>Transformez votre boutique en marketplace pour accueillir plusieurs vendeurs.</p>
+                        <span class="badge badge-new">Nouveau</span>
+                    </div>
+                    <div class="extension-card">
+                        <div class="extension-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Ciblage Géographique</h3>
+                        <p>Promotions ciblées par région pour augmenter l'engagement local.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
     <footer>
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h3>AFRIZONE</h3>
-                    <p>Votre plateforme pour découvrir et acheter les meilleurs produits artisanaux et locaux du Bénin.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon" target="_blank">f</a>
-                        <a href="#" class="social-icon" target="_blank">t</a>
-                        <a href="#" class="social-icon" target="_blank">i</a>
-                        <a href="#" class="social-icon" target="_blank">in</a>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Afrizone</h3>
+                    <p>Solution complète pour votre boutique en ligne avec fonctionnalités avancées adaptées au marché africain.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Liens Rapides</h3>
-                    <ul class="footer-links">
-                        <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#produits">Produits</a></li>
-                        <li><a href="#categories">Catégories</a></li>
-                        <li><a href="#apropos">À propos</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                <div class="footer-col">
+                    <h3>Fonctionnalités</h3>
+                    <ul>
+                        <li><a href="#">Gestion des produits</a></li>
+                        <li><a href="#">Gestion des commandes</a></li>
+                        <li><a href="#">Système de paiement</a></li>
+                        <li><a href="#">Marketing digital</a></li>
+                        <li><a href="#">Analytique avancée</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Catégories</h3>
-                    <ul class="footer-links" id="footer-categories">
-                        <li><a href="#" data-category="textile">Textiles</a></li>
-                        <li><a href="#" data-category="artisanat">Artisanat</a></li>
-                        <li><a href="#" data-category="epices">Épices</a></li>
-                        <li><a href="#" data-category="cosmetiques">Cosmétiques</a></li>
+                <div class="footer-col">
+                    <h3>Ressources</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutoriels</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Centre d'aide</a></li>
+                        <li><a href="#">API</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Inscrivez-vous pour recevoir nos offres spéciales et nouveautés</p>
-                    <form id="newsletter-form">
-                        <div class="form-group">
-                            <input type="email" placeholder="Votre email" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">S'inscrire</button>
-                    </form>
+                <div class="footer-col">
+                    <h3>Légal</h3>
+                    <ul>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Politique de cookies</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 AFRIZONE. Tous droits réservés.</p>
+            <div class="copyright">
+                <p>&copy; 2023 Afrizone. Tous droits réservés. <span class="badge badge-secure"><i class="fas fa-lock"></i> Site sécurisé</span></p>
             </div>
         </div>
     </footer>
 
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <script>
-        // Base de données des produits
-        const products = [
-            {
-                id: 1,
-                name: "Tissu Kente Traditionnel",
-                category: "textile",
-                price: 12500,
-                stock: 15,
-                description: "Tissu traditionnel béninois en coton, tissé à la main avec des motifs géométriques symboliques. Parfait pour les occasions spéciales et cérémonies.",
-                image: "🧵"
-            },
-            {
-                id: 2,
-                name: "Statue en Bois d'Iroko",
-                category: "artisanat",
-                price: 22500,
-                stock: 8,
-                description: "Sculpture artisanale en bois d'Iroko représentant une figure traditionnelle Fon. Fabriquée par des artisans locaux de Ouidah.",
-                image: "🗿"
-            },
-            {
-                id: 3,
-                name: "Poudre de Néré",
-                category: "epices",
-                price: 3500,
-                stock: 25,
-                description: "Épice traditionnelle extraite des graines de néré, utilisée pour parfumer les sauces et plats locaux. Riche en protéines et minéraux.",
-                image: "🌿"
-            },
-            {
-                id: 4,
-                name: "Beurre de Karité Pur",
-                category: "cosmetiques",
-                price: 4500,
-                stock: 30,
-                description: "Beurre de karité 100% naturel, non raffiné, produit par des coopératives de femmes du Nord Bénin. Idéal pour hydrater la peau et les cheveux.",
-                image: "🧴"
-            },
-            {
-                id: 5,
-                name: "Panier Tressé en Raphia",
-                category: "artisanat",
-                price: 7500,
-                stock: 12,
-                description: "Panier traditionnel tressé à la main avec des fibres de raphia. Utilisable comme décoration ou pour le rangement.",
-                image: "🧺"
-            },
-            {
-                id: 6,
-                name: "Pagne Wax Africain",
-                category: "textile",
-                price: 9500,
-                stock: 20,
-                description: "Pagne en wax de qualité supérieure avec motifs colorés typiques de l'Afrique de l'Ouest. 100% coton, 6 yards.",
-                image: "👗"
-            },
-            {
-                id: 7,
-                name: "Sauce Gombo Séché",
-                category: "epices",
-                price: 2500,
-                stock: 5,
-                description: "Gombo séché et moulu pour préparer la sauce gombo traditionnelle. Produit local, sans conservateurs.",
-                image: "🥬"
-            },
-            {
-                id: 8,
-                name: "Huile de Baobab",
-                category: "cosmetiques",
-                price: 6500,
-                stock: 18,
-                description: "Huile végétale pure extraite des graines de baobab. Riche en vitamines et antioxydants pour nourrir la peau et les cheveux.",
-                image: "💧"
-            }
-        ];
-
-        // Proverbes béninois
-        const proverbs = [
-            {
-                text: "Quand la main du potier glisse, il dit qu'il voulait faire autre chose.",
-                author: "Proverbe Fon"
-            },
-            {
-                text: "Le vieux singe ne montre pas comment grimper à l'arbre.",
-                author: "Proverbe Yoruba"
-            },
-            {
-                text: "On ne peut pas cueillir une noix de coco sans risquer de se faire frapper par une feuille de palmier.",
-                author: "Proverbe Bariba"
-            },
-            {
-                text: "Le crapaud ne se presse que lorsqu'il s'agit de sa propre vie.",
-                author: "Proverbe Adja"
-            },
-            {
-                text: "La bouche qui dit non aujourd'hui, dira oui demain.",
-                author: "Proverbe Goun"
-            }
-        ];
-
-        // Éléments DOM
-        const dom = {
-            productsGrid: document.getElementById('products-grid'),
-            cartIcon: document.getElementById('cart-icon'),
-            cartCount: document.getElementById('cart-count'),
-            cartItems: document.getElementById('cart-items'),
-            cartSubtotal: document.getElementById('cart-subtotal'),
-            cartShipping: document.getElementById('cart-shipping'),
-            cartTotal: document.getElementById('cart-total'),
-            cartEmptyMessage: document.getElementById('cart-empty-message'),
-            cartContent: document.getElementById('cart-content'),
-            productModal: document.getElementById('product-modal'),
-            modalProductTitle: document.getElementById('modal-product-title'),
-            modalProductContent: document.getElementById('modal-product-content'),
-            modalClose: document.getElementById('modal-close'),
-            cartModal: document.getElementById('cart-modal'),
-            cartClose: document.getElementById('cart-close'),
-            clearCart: document.getElementById('clear-cart'),
-            checkoutBtn: document.getElementById('checkout'),
-            paymentModal: document.getElementById('payment-modal'),
-            paymentClose: document.getElementById('payment-close'),
-            paymentOk: document.getElementById('payment-ok'),
-            themeToggle: document.getElementById('theme-toggle'),
-            notification: document.getElementById('notification'),
-            notificationMessage: document.getElementById('notification-message'),
-            notificationClose: document.getElementById('notification-close'),
-            searchInput: document.getElementById('search-input'),
-            faqItems: document.querySelectorAll('.faq-item'),
-            contactForm: document.getElementById('contact-form'),
-            newsletterForm: document.getElementById('newsletter-form'),
-            hamburger: document.getElementById('hamburger'),
-            navLinks: document.getElementById('nav-links'),
-            proverbText: document.getElementById('proverb'),
-            proverbAuthor: document.getElementById('proverb-author'),
-            footerCategories: document.querySelectorAll('#footer-categories a'),
-            productsTitle: document.getElementById('products-title'),
-            categoryCards: document.querySelectorAll('.category-card'),
-            categoryFilters: document.querySelectorAll('.category-filter')
-        };
-
-        // Panier
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let currentCategory = 'all'; // Catégorie actuellement sélectionnée
-
-        // Initialisation
-        function init() {
-            renderProducts(products);
-            updateCartCount();
-            setupEventListeners();
-            showRandomProverb();
-        }
-
-        // Rendu des produits
-        function renderProducts(productsToRender) {
-            dom.productsGrid.innerHTML = '';
-            
-            if (productsToRender.length === 0) {
-                dom.productsGrid.innerHTML = '<p class="no-results">Aucun produit ne correspond à votre recherche</p>';
-                return;
-            }
-            
-            productsToRender.forEach(product => {
-                const stockClass = product.stock > 10 ? 'in-stock' : (product.stock > 0 ? 'low-stock' : 'out-of-stock');
-                const stockText = product.stock > 10 ? 'En stock' : (product.stock > 0 ? 'Stock faible' : 'Rupture de stock');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fonction pour afficher une section et masquer les autres
+            function showSection(sectionId) {
+                // Masquer toutes les sections
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.remove('active-section');
+                });
                 
-                const productElement = document.createElement('div');
-                productElement.className = 'product-card';
-                productElement.dataset.category = product.category;
-                productElement.innerHTML = `
-                    <div class="product-img">${product.image}</div>
-                    <div class="product-content">
-                        <h3 class="product-title">${product.name}</h3>
-                        <div class="product-price">${formatPrice(product.price)} FCFA</div>
-                        <div class="product-stock ${stockClass}">${stockText}</div>
-                        <button class="btn btn-primary add-to-cart" data-id="${product.id}">Voir les détails</button>
-                    </div>
-                `;
-                dom.productsGrid.appendChild(productElement);
-            });
-            
-            // Ajout des événements aux boutons "Ajouter au panier"
-            document.querySelectorAll('.add-to-cart').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const productId = parseInt(e.target.getAttribute('data-id'));
-                    showProductDetails(productId);
-                });
-            });
-            
-            // Filtrer les produits par catégorie
-            filterProductsByCategory(currentCategory);
-        }
-
-        // Formatage du prix
-        function formatPrice(price) {
-            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-        }
-
-        // Afficher les détails du produit dans une modal
-        function showProductDetails(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-            
-            const stockClass = product.stock > 10 ? 'in-stock' : (product.stock > 0 ? 'low-stock' : 'out-of-stock');
-            const stockText = product.stock > 10 ? 'En stock' : (product.stock > 0 ? 'Stock faible' : 'Rupture de stock');
-            
-            dom.modalProductTitle.textContent = product.name;
-            dom.modalProductContent.innerHTML = `
-                <div style="display: flex; gap: 30px; margin-bottom: 30px;">
-                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0; border-radius: var(--border-radius); padding: 20px;">
-                        <div style="font-size: 5rem;">${product.image}</div>
-                    </div>
-                    <div style="flex: 1;">
-                        <p style="margin-bottom: 20px;">${product.description}</p>
-                        <div class="product-price" style="font-size: 1.5rem; margin-bottom: 20px;">${formatPrice(product.price)} FCFA</div>
-                        <div class="product-stock ${stockClass}" style="margin-bottom: 20px;">${stockText}</div>
-                        <div style="display: flex; gap: 15px;">
-                            <button class="btn btn-primary add-to-cart-btn" data-id="${product.id}" ${product.stock <= 0 ? 'disabled' : ''}>
-                                ${product.stock <= 0 ? 'Rupture de stock' : 'Ajouter au panier'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            // Ajout de l'événement au bouton "Ajouter au panier" dans la modal
-            const addToCartBtn = dom.modalProductContent.querySelector('.add-to-cart-btn');
-            if (addToCartBtn) {
-                addToCartBtn.addEventListener('click', () => {
-                    addToCart(productId);
-                    dom.productModal.classList.remove('active');
-                    showNotification('Produit ajouté au panier!', 'success');
-                });
-            }
-            
-            dom.productModal.classList.add('active');
-        }
-
-        // Ajouter un produit au panier
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product || product.stock <= 0) return;
-            
-            const existingItem = cart.find(item => item.id === productId);
-            
-            if (existingItem) {
-                if (existingItem.quantity < product.stock) {
-                    existingItem.quantity++;
-                } else {
-                    showNotification('Stock insuffisant pour ce produit', 'warning');
-                    return;
+                // Afficher la section demandée
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active-section');
+                    
+                    // Faire défiler jusqu'au haut de la page
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Réinitialiser les animations
+                    resetAnimations();
+                    
+                    // Déclencher les animations
+                    setTimeout(animateElements, 100);
                 }
-            } else {
-                cart.push({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    image: product.image,
-                    quantity: 1
+            }
+            
+            // Réinitialiser les animations
+            function resetAnimations() {
+                const elements = document.querySelectorAll('.feature-card, .security-item, .marketing-item, .extension-card, .product-card');
+                elements.forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
                 });
             }
             
-            updateCart();
-            showNotification('Produit ajouté au panier!', 'success');
-        }
-
-        // Mettre à jour le panier
-        function updateCart() {
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-            renderCartItems();
-        }
-
-        // Mettre à jour le compteur du panier
-        function updateCartCount() {
-            const count = cart.reduce((total, item) => total + item.quantity, 0);
-            dom.cartCount.textContent = count;
-        }
-
-        // Rendre les éléments du panier
-        function renderCartItems() {
-            dom.cartItems.innerHTML = '';
-            
-            if (cart.length === 0) {
-                dom.cartEmptyMessage.style.display = 'block';
-                dom.cartContent.style.display = 'none';
-                return;
-            }
-            
-            dom.cartEmptyMessage.style.display = 'none';
-            dom.cartContent.style.display = 'block';
-            
-            cart.forEach(item => {
-                const product = products.find(p => p.id === item.id);
-                if (!product) return;
-                
-                const cartItemElement = document.createElement('div');
-                cartItemElement.className = 'cart-item';
-                cartItemElement.innerHTML = `
-                    <div class="cart-item-img">${item.image}</div>
-                    <div class="cart-item-details">
-                        <div class="cart-item-title">${item.name}</div>
-                        <div class="cart-item-price">${formatPrice(item.price)} FCFA</div>
-                    </div>
-                    <div class="cart-item-actions">
-                        <div class="cart-item-quantity">
-                            <button class="quantity-btn decrease" data-id="${item.id}">-</button>
-                            <input type="text" class="quantity-input" value="${item.quantity}" readonly>
-                            <button class="quantity-btn increase" data-id="${item.id}">+</button>
-                        </div>
-                        <button class="cart-remove" data-id="${item.id}">🗑️</button>
-                    </div>
-                `;
-                dom.cartItems.appendChild(cartItemElement);
-            });
-            
-            // Calcul des totaux
-            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-            const shipping = subtotal > 0 ? 2000 : 0;
-            const total = subtotal + shipping;
-            
-            dom.cartSubtotal.textContent = `${formatPrice(subtotal)} FCFA`;
-            dom.cartShipping.textContent = `${formatPrice(shipping)} FCFA`;
-            dom.cartTotal.textContent = `${formatPrice(total)} FCFA`;
-            
-            // Ajout des événements aux boutons de quantité et de suppression
-            document.querySelectorAll('.decrease').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const productId = parseInt(e.target.getAttribute('data-id'));
-                    updateCartItemQuantity(productId, -1);
-                });
-            });
-            
-            document.querySelectorAll('.increase').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const productId = parseInt(e.target.getAttribute('data-id'));
-                    updateCartItemQuantity(productId, 1);
-                });
-            });
-            
-            document.querySelectorAll('.cart-remove').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const productId = parseInt(e.target.getAttribute('data-id'));
-                    removeFromCart(productId);
-                });
-            });
-        }
-
-        // Mettre à jour la quantité d'un article
-        function updateCartItemQuantity(productId, change) {
-            const itemIndex = cart.findIndex(item => item.id === productId);
-            if (itemIndex === -1) return;
-            
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-            
-            const newQuantity = cart[itemIndex].quantity + change;
-            
-            if (newQuantity < 1) {
-                removeFromCart(productId);
-                return;
-            }
-            
-            if (newQuantity > product.stock) {
-                showNotification('Stock insuffisant pour ce produit', 'warning');
-                return;
-            }
-            
-            cart[itemIndex].quantity = newQuantity;
-            updateCart();
-        }
-
-        // Supprimer un article du panier
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            updateCart();
-            showNotification('Produit retiré du panier', 'error');
-        }
-
-        // Vider le panier
-        function clearCart() {
-            cart = [];
-            updateCart();
-            dom.cartModal.classList.remove('active');
-            showNotification('Panier vidé', 'error');
-        }
-
-        // Passer à la caisse
-        function checkout() {
-            if (cart.length === 0) {
-                showNotification('Votre panier est vide', 'error');
-                return;
-            }
-            
-            // Vider le panier après paiement
-            cart = [];
-            updateCart();
-            dom.cartModal.classList.remove('active');
-            dom.paymentModal.classList.add('active');
-        }
-
-        // Afficher une notification
-        function showNotification(message, type) {
-            dom.notificationMessage.textContent = message;
-            dom.notification.className = `notification ${type} show`;
-            
-            setTimeout(() => {
-                dom.notification.classList.remove('show');
-            }, 3000);
-        }
-
-        // Changer de thème (clair/sombre)
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-            const isDarkMode = document.body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDarkMode);
-        }
-
-        // Filtrer les produits par recherche
-        function filterProducts(searchTerm) {
-            if (!searchTerm.trim()) {
-                filterProductsByCategory(currentCategory);
-                return;
-            }
-            
-            const filteredProducts = products.filter(product => 
-                product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                product.category.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-            
-            renderProducts(filteredProducts);
-        }
-
-        // Filtrer les produits par catégorie
-        function filterProductsByCategory(category) {
-            currentCategory = category;
-            
-            // Mettre à jour les indicateurs visuels
-            updateCategoryIndicators(category);
-            
-            // Mettre à jour le titre de la section produits
-            const categoryTitles = {
-                'all': 'Tous les produits',
-                'textile': 'Textiles béninois',
-                'artisanat': 'Artisanat local',
-                'epices': 'Épices traditionnelles',
-                'cosmetiques': 'Cosmétiques naturels'
-            };
-            
-            dom.productsTitle.textContent = categoryTitles[category] || 'Produits Populaires';
-            
-            // Filtrer les produits
-            const productCards = document.querySelectorAll('.product-card');
-            
-            productCards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.classList.remove('hidden', 'animate-out');
-                    card.classList.add('animate-in');
-                } else {
-                    card.classList.remove('animate-in');
-                    card.classList.add('animate-out');
-                    setTimeout(() => {
-                        card.classList.add('hidden');
-                    }, 300);
-                }
-            });
-        }
-        
-        // Mettre à jour les indicateurs de catégorie
-        function updateCategoryIndicators(category) {
-            // Cartes de catégorie
-            dom.categoryCards.forEach(card => {
-                if (card.dataset.category === category) {
-                    card.classList.add('active');
-                } else {
-                    card.classList.remove('active');
-                }
-            });
-            
-            // Filtres de catégorie
-            dom.categoryFilters.forEach(filter => {
-                if (filter.dataset.category === category) {
-                    filter.classList.add('active');
-                } else {
-                    filter.classList.remove('active');
-                }
-            });
-        }
-
-        // Afficher un proverbe aléatoire
-        function showRandomProverb() {
-            const randomIndex = Math.floor(Math.random() * proverbs.length);
-            dom.proverbText.textContent = `"${proverbs[randomIndex].text}"`;
-            dom.proverbAuthor.textContent = proverbs[randomIndex].author;
-        }
-
-        // Configuration des écouteurs d'événements
-        function setupEventListeners() {
-            // Panier
-            dom.cartIcon.addEventListener('click', () => {
-                renderCartItems();
-                dom.cartModal.classList.add('active');
-            });
-            
-            // Fermeture des modals
-            dom.modalClose.addEventListener('click', () => {
-                dom.productModal.classList.remove('active');
-            });
-            
-            dom.cartClose.addEventListener('click', () => {
-                dom.cartModal.classList.remove('active');
-            });
-            
-            dom.paymentClose.addEventListener('click', () => {
-                dom.paymentModal.classList.remove('active');
-            });
-            
-            dom.paymentOk.addEventListener('click', () => {
-                dom.paymentModal.classList.remove('active');
-            });
-            
-            // Boutons panier
-            dom.clearCart.addEventListener('click', clearCart);
-            dom.checkoutBtn.addEventListener('click', checkout);
-            
-            // Thème
-            dom.themeToggle.addEventListener('click', toggleTheme);
-            
-            // Notifications
-            dom.notificationClose.addEventListener('click', () => {
-                dom.notification.classList.remove('show');
-            });
-            
-            // Recherche
-            dom.searchInput.addEventListener('input', (e) => {
-                filterProducts(e.target.value);
-            });
-            
-            // FAQ accordéon
-            dom.faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                question.addEventListener('click', () => {
-                    item.classList.toggle('active');
-                });
-            });
-            
-            // Formulaires
-            dom.contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                showNotification('Message envoyé avec succès!', 'success');
-                dom.contactForm.reset();
-            });
-            
-            dom.newsletterForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                showNotification('Merci pour votre inscription à notre newsletter!', 'success');
-                dom.newsletterForm.reset();
-            });
-            
-            // Menu hamburger
-            dom.hamburger.addEventListener('click', () => {
-                dom.navLinks.classList.toggle('active');
-            });
-            
-            // Catégories dans le footer
-            dom.footerCategories.forEach(category => {
-                category.addEventListener('click', (e) => {
+            // Gérer les clics sur les liens de navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const categoryType = category.getAttribute('data-category');
-                    filterProductsByCategory(categoryType);
-                    window.scrollTo({
-                        top: document.getElementById('produits').offsetTop - 100,
-                        behavior: 'smooth'
-                    });
+                    const sectionId = this.getAttribute('data-section');
+                    showSection(sectionId);
                 });
             });
             
-            // Cartes de catégories
-            dom.categoryCards.forEach(card => {
-                card.addEventListener('click', () => {
-                    const category = card.getAttribute('data-category');
-                    filterProductsByCategory(category);
-                    window.scrollTo({
-                        top: document.getElementById('produits').offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                });
+            // Gestion du profil
+            const profileIcon = document.getElementById('profileIcon');
+            const profileDropdown = document.getElementById('profileDropdown');
+            
+            profileIcon.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profileDropdown.classList.toggle('show');
             });
             
-            // Filtres de catégories
-            dom.categoryFilters.forEach(filter => {
-                filter.addEventListener('click', () => {
-                    const category = filter.getAttribute('data-category');
-                    filterProductsByCategory(category);
-                });
+            // Fermer le dropdown quand on clique ailleurs
+            document.addEventListener('click', function(e) {
+                if (profileDropdown.classList.contains('show') && !profileIcon.contains(e.target)) {
+                    profileDropdown.classList.remove('show');
+                }
             });
             
-            // Fermer les modals en cliquant en dehors
-            window.addEventListener('click', (e) => {
-                if (e.target === dom.productModal) {
-                    dom.productModal.classList.remove('active');
-                }
-                if (e.target === dom.cartModal) {
-                    dom.cartModal.classList.remove('active');
-                }
-                if (e.target === dom.paymentModal) {
-                    dom.paymentModal.classList.remove('active');
-                }
-            });
-        }
-
-        // Charger le thème sauvegardé
-        function loadTheme() {
-            const isDarkMode = localStorage.getItem('darkMode') === 'true';
-            if (isDarkMode) {
-                document.body.classList.add('dark-mode');
+            // Animation des éléments
+            function animateElements() {
+                const featureCards = document.querySelectorAll('.feature-card');
+                const securityItems = document.querySelectorAll('.security-item');
+                const marketingItems = document.querySelectorAll('.marketing-item');
+                const extensionCards = document.querySelectorAll('.extension-card');
+                const productCards = document.querySelectorAll('.product-card');
+                
+                // Animation des cartes de fonctionnalités
+                featureCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 200 * index);
+                });
+                
+                // Animation des éléments de sécurité
+                securityItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 200 * index);
+                });
+                
+                // Animation des éléments marketing
+                marketingItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                });
+                
+                // Animation des cartes d'extension
+                extensionCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 200 * index);
+                });
+                
+                // Animation des cartes de produits
+                productCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                });
             }
-        }
-
-        // Initialiser l'application
-        window.addEventListener('DOMContentLoaded', () => {
-            loadTheme();
-            init();
+            
+            // Bouton "Retour en haut"
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Filtrage des produits par catégorie
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Enlever la classe active de tous les boutons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Ajouter la classe active au bouton cliqué
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Filtrer les produits
+                    document.querySelectorAll('.product-card').forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Boutons favoris
+            document.querySelectorAll('.favorite-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        icon.style.color = '#c13535';
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        icon.style.color = '';
+                    }
+                });
+            });
+            
+            // Boutons "Ajouter au panier"
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard.querySelector('.product-name').textContent;
+                    
+                    // Animation
+                    const originalText = this.textContent;
+                    this.innerHTML = '<i class="fas fa-check"></i> Ajouté';
+                    this.style.backgroundColor = '#2e8b57';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.backgroundColor = '';
+                    }, 2000);
+                    
+                    // Message de confirmation
+                    alert(`${productName} a été ajouté à votre panier !`);
+                });
+            });
+            
+            // Initialiser les animations sur la page d'accueil
+            setTimeout(animateElements, 500);
         });
     </script>
 </body>
