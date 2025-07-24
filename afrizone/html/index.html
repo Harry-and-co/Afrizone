@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afrizone - Produits Locaux Africains</title>
+    <title>AfroSouk - Artisanat et Produits Africains Authentiques</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #000000;
-            --secondary: #333333;
+            --primary: #2e8b57; /* Vert africain */
+            --secondary: #e6b325; /* Jaune africain */
             --accent: #ffffff;
             --light: #f8f9fa;
             --dark: #212529;
@@ -17,18 +18,17 @@
             --border-radius: 8px;
             --box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
-            --african-yellow: #e6b325;
             --african-red: #c13535;
-            --african-green: #2e8b57;
             --african-blue: #1e5f8d;
             --african-purple: #6a5acd;
+            --african-brown: #8B4513;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -68,6 +68,8 @@
             font-weight: 700;
             display: flex;
             align-items: center;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
         }
 
         .logo i {
@@ -112,7 +114,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -211,6 +213,7 @@
             font-size: 3.5rem;
             margin-bottom: 1rem;
             color: var(--accent);
+            font-family: 'Roboto Slab', serif;
         }
 
         .hero p {
@@ -247,6 +250,8 @@
             color: var(--primary);
             display: inline-block;
             padding-bottom: 10px;
+            font-family: 'Roboto Slab', serif;
+            position: relative;
         }
 
         .section-title h2::after {
@@ -395,7 +400,7 @@
             margin-bottom: 15px;
         }
 
-        /* STYLES POUR LA NOUVELLE SECTION PRODUITS LOCAUX */
+        /* STYLES POUR LA SECTION PRODUITS LOCAUX */
         .local-products-section {
             background-color: #f9f8f3;
             padding: 5rem 0;
@@ -413,7 +418,7 @@
             padding: 10px 20px;
             border-radius: 30px;
             background-color: white;
-            border: 2px solid var(--african-yellow);
+            border: 2px solid var(--secondary);
             color: var(--dark);
             font-weight: 600;
             cursor: pointer;
@@ -421,7 +426,7 @@
         }
         
         .category-btn.active, .category-btn:hover {
-            background-color: var(--african-yellow);
+            background-color: var(--secondary);
             color: white;
         }
         
@@ -490,7 +495,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            color: var(--african-green);
+            color: var(--primary);
             font-size: 0.85rem;
             margin-bottom: 10px;
         }
@@ -510,7 +515,7 @@
         
         .add-to-cart {
             flex-grow: 1;
-            background-color: var(--african-yellow);
+            background-color: var(--primary);
             color: white;
             border: none;
             border-radius: var(--border-radius);
@@ -521,7 +526,7 @@
         }
         
         .add-to-cart:hover {
-            background-color: #d89c1f;
+            background-color: #267a4a;
         }
         
         .favorite-btn {
@@ -544,7 +549,7 @@
         
         /* Footer styles */
         footer {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--accent);
             padding: 3rem 0 1.5rem;
             margin-top: auto;
@@ -607,7 +612,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: var(--secondary);
+            background: rgba(255,255,255,0.2);
             color: var(--accent);
             font-size: 1.2rem;
             transition: var(--transition);
@@ -616,14 +621,14 @@
 
         .social-icons a:hover {
             transform: translateY(-5px);
-            background: var(--primary);
+            background: rgba(255,255,255,0.3);
         }
 
         .copyright {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            color: var(--gray);
+            color: var(--light-gray);
             font-size: 0.9rem;
         }
 
@@ -637,8 +642,8 @@
         }
 
         .badge-new {
-            background-color: var(--primary);
-            color: var(--accent);
+            background-color: var(--secondary);
+            color: var(--dark);
         }
 
         .badge-secure {
@@ -726,8 +731,8 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-globe-africa"></i>
-                Afrizone
+                <i class="fas fa-basket-shopping"></i>
+                AfroSouk
             </div>
             <nav>
                 <ul>
@@ -761,9 +766,9 @@
     <!-- Section Héro (Accueil) -->
     <section id="hero" class="hero active-section">
         <div class="container hero-content">
-            <h1>Afrizone - Votre plateforme E-Commerce Africaine</h1>
-            <p>Solution tout-en-un pour gérer votre boutique en ligne avec des fonctionnalités avancées adaptées au marché africain.</p>
-            <a href="#" class="btn btn-primary"><i class="fas fa-rocket"></i> Démarrer maintenant</a>
+            <h1>AfroSouk - Artisanat Africain Authentique</h1>
+            <p>Découvrez une sélection unique de produits artisanaux et locaux venant de tout le continent africain, directement chez vous.</p>
+            <a href="#" class="btn btn-primary"><i class="fas fa-rocket"></i> Explorer la boutique</a>
         </div>
     </section>
 
@@ -771,8 +776,8 @@
     <section id="local-products" class="local-products-section">
         <div class="container">
             <div class="section-title">
-                <h2>Produits Locaux Africains</h2>
-                <p>Découvrez notre sélection de produits authentiques venant de tout le continent</p>
+                <h2>Artisanat Africain Authentique</h2>
+                <p>Découvrez notre sélection de produits venant de tout le continent</p>
             </div>
             
             <div class="product-categories">
@@ -1016,7 +1021,7 @@
         </div>
     </section>
 
-    <!-- Solutions (anciennement Produits) -->
+    <!-- Solutions -->
     <section id="solutions" class="products">
         <div class="container">
             <div class="section-title">
@@ -1242,8 +1247,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>Afrizone</h3>
-                    <p>Solution complète pour votre boutique en ligne avec fonctionnalités avancées adaptées au marché africain.</p>
+                    <h3>AfroSouk</h3>
+                    <p>Plateforme d'artisanat africain authentique, reliant les créateurs locaux aux passionnés du monde entier.</p>
                     <div class="social-icons">
                         <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -1253,23 +1258,23 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h3>Fonctionnalités</h3>
+                    <h3>Artisanat</h3>
                     <ul>
-                        <li><a href="#">Gestion des produits</a></li>
-                        <li><a href="#">Gestion des commandes</a></li>
-                        <li><a href="#">Système de paiement</a></li>
-                        <li><a href="#">Marketing digital</a></li>
-                        <li><a href="#">Analytique avancée</a></li>
+                        <li><a href="#">Textiles & Tissus</a></li>
+                        <li><a href="#">Sculptures & Masques</a></li>
+                        <li><a href="#">Bijoux Traditionnels</a></li>
+                        <li><a href="#">Produits Naturels</a></li>
+                        <li><a href="#">Art Culinaire</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Ressources</h3>
                     <ul>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Tutoriels</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Artisans & Créateurs</a></li>
+                        <li><a href="#">Guide des Produits</a></li>
+                        <li><a href="#">Blog Culturel</a></li>
                         <li><a href="#">Centre d'aide</a></li>
-                        <li><a href="#">API</a></li>
+                        <li><a href="#">Programme Partenaire</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1283,7 +1288,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Afrizone. Tous droits réservés. <span class="badge badge-secure"><i class="fas fa-lock"></i> Site sécurisé</span></p>
+                <p>&copy; 2023 AfroSouk. Tous droits réservés. <span class="badge badge-secure"><i class="fas fa-lock"></i> Site sécurisé</span></p>
             </div>
         </div>
     </footer>
